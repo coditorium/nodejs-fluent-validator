@@ -1,0 +1,6 @@
+/app/client/node_modules/lib/bower
+/node_modules
+/build
+
+*.log
+*.sublime-*
