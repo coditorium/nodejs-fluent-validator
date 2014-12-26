@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 	mocha = require('gulp-mocha'),
 	path = require('path'),
 	mkdirp = require('mkdirp'),
-	clean = require('gulp-clean'),
+	clean = require('gulp-rimraf'),
 	istanbul = require('gulp-istanbul');
 
 function initTestMode() {
@@ -18,8 +18,8 @@ function initTestMode() {
 }
 
 gulp.task('clean', function() {
-	return gulp.src('build')
-	.pipe(clean());
+	return gulp.src('build', { read: false })
+		.pipe(clean());
 });
 
 gulp.task('jshint', function() {

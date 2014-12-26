@@ -1,16 +1,16 @@
 {
   "author": "Paweł Mendelski <pawel.mendelski@coditorium.com>",
   "name": "fluent-validator",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Fluent validation mechanism for node.js",
   "main": "index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/coditorium/fluent-validator.git"
+    "url": "https://github.com/coditorium/nodejs-fluent-validator.git"
   },
   "bugs": {
-    "url": "https://github.com/coditorium/fluent-validator/issues"
+    "url": "https://github.com/coditorium/nodejs-fluent-validator/issues"
   },
   "scripts": {
     "test": "gulp jshint test",
@@ -26,7 +26,6 @@
   "devDependencies": {
     "chai": "^1.10.0",
     "gulp": "~3.8.10",
-    "gulp-clean": "~0.3.1",
     "gulp-istanbul": "~0.5.0",
     "gulp-jshint": "~1.8.5",
     "gulp-mocha": "~1.1.1",

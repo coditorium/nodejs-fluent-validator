@@ -24,7 +24,7 @@ app.get('/users', function() {
 
 ### Separating validation rules
 
-***OR Separator***
+**OR Separator**
 ```
 // Example: chain1.or.chain2
 validator().validate(value).isInt().or.isEmpty();
@@ -35,7 +35,7 @@ validator().validate(value).isInt().or.isEmpty();
 - if `value` does not any of validation chains then errors are produced from `chain1`.
 
 
-***AND Separator***
+**AND Separator**
 
 ```
 // Example: chain1.and.chain2
@@ -106,7 +106,7 @@ validator.add('isDivisibleBy', 'Expected ${0} to be divisible by ${1}', function
 });
 
 // Adding custom error thrower used in validation.throwOnError()
-validator.errorThrower = function(errors) {
+validator.throwError = function(errors) {
 	new Error('Validation error. ' + errors.map(function(error) {
 		return error.message;
 	}));

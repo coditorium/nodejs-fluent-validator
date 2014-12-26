@@ -1,7 +1,7 @@
 'use strict';
 
 var expect = require('chai').expect,
-	validator = requireLib('index');
+	validator = require('../index');
 
 describe('Parameterized validation:', function() {
 
