@@ -60,13 +60,13 @@ describe('Result checking:', function() {
 	describe('should use custom error throwing mechanism', function() {
 
 		before(function() {
-			validator.errorThrower = function (errors) {
+			validator.throwError = function (errors) {
 				throw new Error('Custom error. Errors: ' + errors.length);
 			};
 		});
 
 		after(function() {
-			delete validator.errorThrower;
+			delete validator.throwError;
 		});
 
 		it('on throwOnErrors', function() {

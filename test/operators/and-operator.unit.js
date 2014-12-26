@@ -75,4 +75,26 @@ describe('AND operator:', function() {
 
 	});
 
+	describe('should throw errors only from first chain', function() {
+
+		it('without and operator', function() {
+			expect(function() {
+				validator('x').isInt().or.isEmpty().throwOnError();
+			}).to.throw('Validation error: Required a valid integer value');
+		});
+
+		it('- first part from and separated chain', function() {
+			expect(function() {
+				validator('x').isInt().and.isPositive().or.isEmpty().throwOnError();
+			}).to.throw('Validation error: Required a valid integer value');
+		});
+
+		it('- second part from and separated chain', function() {
+			expect(function() {
+				validator('-1').isInt().and.isPositive().or.isEmpty().throwOnError();
+			}).to.throw('Validation error: Required a positive number');
+		});
+
+	});
+
 });
