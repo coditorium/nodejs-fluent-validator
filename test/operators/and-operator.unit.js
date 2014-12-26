@@ -92,7 +92,7 @@ describe('AND operator:', function() {
 		it('- second part from and separated chain', function() {
 			expect(function() {
 				validator('-1').isInt().and.isPositive().or.isEmpty().throwOnError();
-			}).to.throw('Validation error: Required a positive number');
+			}).to.throw('Validation error: Required a positive value');
 		});
 
 	});
