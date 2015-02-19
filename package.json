@@ -22,7 +22,7 @@
     "configuration"
   ],
   "dependencies": {
-    "validator": "~3.26.0"
+    "validator": "~3.30.0"
   },
   "devDependencies": {
     "chai": "^1.10.0",
