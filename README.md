@@ -4,7 +4,7 @@
 [![dependencies](https://david-dm.org/coditorium/nodejs-fluent-validator.png)](https://david-dm.org/coditorium/nodejs-fluent-validator)
 [![Coverage Status](https://coveralls.io/repos/coditorium/nodejs-fluent-validator/badge.svg)](https://coveralls.io/r/coditorium/nodejs-fluent-validator)
 
-[![NPM info](https://nodei.co/npm/fluent-validator.png?downloads=true)](https://nodei.co/npm/fluent-validator.png?downloads=true)
+[![NPM info](https://nodei.co/npm/fluent-validator.png?downloads=true)](https://www.npmjs.com/package/fluent-validator)
 
 Fluent validator that enables validation on multiple parameters at once.
 
