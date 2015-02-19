@@ -18,8 +18,8 @@ describe('Parameterized validation:', function() {
 
 		it('with parametrized message', function() {
 			var validation = validator('W').isIn(['X', 'Y', 'Z']);
-				expect(validation.hasErrors()).to.be.true;
-				expect(validation.getErrors()[0].message).to.be.equal('Required a value that is equal to one of X,Y,Z');
+			expect(validation.hasErrors()).to.be.true;
+			expect(validation.getErrors()[0].message).to.be.equal('Required a value that is equal to one of X,Y,Z');
 		});
 
 	});

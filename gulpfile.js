@@ -4,6 +4,7 @@ var gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	sync = require('gulp-sync')(gulp).sync,
 	jshint = require('gulp-jshint'),
+	jscs = require('gulp-jscs'),
 	mocha = require('gulp-mocha'),
 	path = require('path'),
 	mkdirp = require('mkdirp'),
@@ -23,24 +24,38 @@ gulp.task('clean', function() {
 });
 
 gulp.task('jshint', function() {
-	return gulp.src('lib/**/*.js')
-	.pipe(jshint())
-	.pipe(jshint.reporter('jshint-stylish'))
-	.pipe(jshint.reporter('fail'));
+	return gulp.src([
+			'**/*.js',
+			'!node_modules/**/*'
+		])
+		.pipe(jshint())
+		.pipe(jshint.reporter('jshint-stylish'))
+		.pipe(jshint.reporter('fail'));
 });
 
-gulp.task('test', function () {
+gulp.task('jscsrc', function() {
+	return gulp.src([
+			'**/*.js',
+			'!node_modules/**/*'
+		])
+		.pipe(jscs());
+});
+
+gulp.task('test', function() {
 	var testSrc = gutil.env.file || 'test/**/*.unit.js';
 	initTestMode();
 	gutil.log('Running unit tests for:', testSrc);
 	return gulp.src(testSrc)
-	.pipe(mocha({reporter: 'mocha-jenkins-reporter', debug: gutil.env.debug }))
+	.pipe(mocha({
+		reporter: 'mocha-jenkins-reporter',
+		debug: gutil.env.debug
+	}))
 	.on('error', function(e) {
 		gutil.log('[mocha] ' + e.stack);
 	});
 });
 
-gulp.task('test-cov', function (done) {
+gulp.task('test-cov', function(done) {
 	mkdirp.sync('./build/test/results');
 	mkdirp.sync('./build/test/coverage');
 	global.testMode = 'unit';
@@ -51,12 +66,15 @@ gulp.task('test-cov', function (done) {
 		includeUntested: true
 	}))
 	.pipe(istanbul.hookRequire())
-	.on('finish', function () {
+	.on('finish', function() {
 		var testSrc = gutil.env.file || 'test/**/*.unit.js';
 		initTestMode();
 		gutil.log('Running instrumented unit tests for:', testSrc);
 		gulp.src(testSrc)
-		.pipe(mocha({reporter: 'mocha-jenkins-reporter', debug: gutil.env.debug }))
+		.pipe(mocha({
+			reporter: 'mocha-jenkins-reporter',
+			debug: gutil.env.debug
+		}))
 		.pipe(istanbul.writeReports({
 			dir: './build/test/coverage',
 			reporters: ['lcov', 'json', 'text', 'text-summary', 'cobertura'],
@@ -69,5 +87,6 @@ gulp.task('test-cov', function (done) {
 	});
 });
 
+gulp.task('checkstyle', sync(['jshint', 'jscsrc']));
 gulp.task('default', sync(['clean', 'jshint', 'test']));
-gulp.task('ci', sync(['clean', 'jshint', 'test-cov']));
+gulp.task('ci', sync(['clean', 'checkstyle', 'test-cov']));
