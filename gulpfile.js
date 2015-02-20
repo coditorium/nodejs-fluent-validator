@@ -7,9 +7,19 @@ var gulp = require('gulp'),
 	jscs = require('gulp-jscs'),
 	mocha = require('gulp-mocha'),
 	path = require('path'),
+	fs = require('fs'),
 	mkdirp = require('mkdirp'),
 	clean = require('gulp-rimraf'),
 	istanbul = require('gulp-istanbul');
+
+(function printBanner() {
+	var bannerPath = path.resolve(__dirname, '.banner');
+	if (fs.existsSync(bannerPath)) {
+		gutil.log('\n' + gutil.colors.green(fs.readFileSync(bannerPath, 'utf8')));
+	} else {
+		gutil.log(gutil.colors.gray('Could not load application banner :('));
+	}
+})();
 
 function initTestMode() {
 	global.testMode = 'unit';
