@@ -15,7 +15,7 @@ Fluent validator that enables validation on multiple parameters at once.
 Example with express paginated endpoint.
 Both query parameters (page and size) must be positive integers or empty values.
 
-```
+``` javascript
 var validator = require('fluent-validator');
 
 app.get('/users', function() {
@@ -31,7 +31,7 @@ app.get('/users', function() {
 ### Separating validation rules
 
 **OR Separator**
-```
+``` javascript
 // Example: chain1.or.chain2
 validator().validate(value).isInt().or.isEmpty();
 ```
@@ -43,7 +43,7 @@ validator().validate(value).isInt().or.isEmpty();
 
 **AND Separator**
 
-```
+``` javascript
 // Example: chain1.and.chain2
 validator().validate(value).isInt().and.isPositive().isDivisibleBy(2);
 ```
@@ -54,7 +54,7 @@ validator().validate(value).isInt().and.isPositive().isDivisibleBy(2);
 ### Result checking
 
 You can react on validation result in multiple ways:
-```
+``` javascript
 var validation = validator()
 	.validate(req.query.page).isInt().and.isPositive().or.isEmpty()
 	.validate(req.query.size).isInt().and.isPositive().or.isEmpty();
@@ -68,7 +68,7 @@ validation.throwOnError(); // Throws error if there are validation errors.
 ### Simple shortcut
 
 You can shorten validation chain:
-```
+``` javascript
 var validation1 = validator().validate(req.query.page).isInt().and.isPositive().or.isEmpty();
 var validation2 = validator(req.query.page).isInt().and.isPositive().or.isEmpty();
 
@@ -80,7 +80,7 @@ var validation2 = validator(req.query.page).isInt().and.isPositive().or.isEmpty(
 
 Validation without chaining.
 
-```
+``` javascript
 var validator = require('fluent-validator');
 
 // isPositive: just executes checks if input > 0
@@ -100,7 +100,7 @@ validator.isPositive([]);		// false
 
 Customizing the validator.
 
-```
+``` javascript
 var validator = require('fluent-validator');
 
 // Adding custom validations
