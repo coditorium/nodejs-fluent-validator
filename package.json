@@ -1,7 +1,7 @@
 {
   "author": "Paweł Mendelski <pawel.mendelski@coditorium.com>",
   "name": "fluent-validator",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Fluent validation mechanism for node.js",
   "main": "index.js",
   "license": "MIT",
@@ -22,26 +22,24 @@
     "validator"
   ],
   "dependencies": {
-    "validator": "~3.33.0"
+    "validator": "~3.40.1"
   },
   "devDependencies": {
-    "chai": "^2.1.1",
-    "gulp": "~3.8.11",
-    "gulp-istanbul": "~0.6.0",
-    "gulp-jshint": "~1.9.2",
-    "gulp-mocha": "~2.0.0",
+    "chai": "^3.0.0",
+    "gulp": "~3.9.0",
+    "gulp-istanbul": "~0.10.0",
+    "gulp-jscs": "^1.6.0",
+    "gulp-jshint": "~1.11.0",
+    "gulp-mocha": "~2.1.2",
     "gulp-sync": "~0.1.4",
-    "gulp-util": "~3.0.4",
-    "jshint-stylish": "~1.0.1",
-    "mkdirp": "~0.5.0",
-    "mocha": "2.1.0",
-    "mocha-jenkins-reporter": "~0.1.4",
-    "coveralls": "~2.11.2",
-    "gulp-jscs": "~1.4.0",
-    "gulp-rimraf": "~0.1.1"
+    "gulp-util": "~3.0.5",
+    "jshint-stylish": "~2.0.1",
+    "mkdirp": "~0.5.1",
+    "mocha": "2.2.5",
+    "mocha-jenkins-reporter": "~0.1.9"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": ">=0.10"
   },
   "analyze": "true"
 }
