@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 	path = require('path'),
 	fs = require('fs'),
 	mkdirp = require('mkdirp'),
-	clean = require('gulp-rimraf'),
+	del = require('del'),
 	istanbul = require('gulp-istanbul');
 
 (function printBanner() {
@@ -28,9 +28,8 @@ function initTestMode() {
 	};
 }
 
-gulp.task('clean', function() {
-	return gulp.src('build', { read: false })
-		.pipe(clean());
+gulp.task('clean', function(done) {
+	del(['build'], done);
 });
 
 gulp.task('jshint', function() {
