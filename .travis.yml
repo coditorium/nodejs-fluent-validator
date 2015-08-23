@@ -8,3 +8,5 @@ after_success: npm run coveralls
 notifications:
   email:
     - admin@coditorium.com
+
+sudo: false
