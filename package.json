@@ -1,7 +1,7 @@
 {
   "author": "Paweł Mendelski <pawel.mendelski@coditorium.com>",
   "name": "fluent-validator",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Fluent validation mechanism for node.js",
   "main": "index.js",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "validator"
   ],
   "dependencies": {
-    "validator": "~3.40.1"
+    "validator": "4.0.5"
   },
   "devDependencies": {
     "chai": "^3.0.0",
