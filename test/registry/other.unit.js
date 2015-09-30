@@ -19,6 +19,53 @@ describe('Other validation checks:', function() {
 
 	});
 
+	describe('is not null validation', function() {
+
+		it('should not pass with null', function() {
+		    var result = checks.isNotNull(null);
+			expect(result).to.be.false;
+	    });
+
+		it('should pass with value', function() {
+			var result = checks.isNotNull(1);
+			expect(result).to.be.true;
+		});
+
+	});
+
+	describe('is not undefined validation', function() {
+
+		it('should not pass with undefined', function() {
+			var result = checks.isNotUndefined(undefined);
+			expect(result).to.be.false;
+		});
+
+		it('should pass with value', function() {
+			var result = checks.isNotUndefined(1);
+			expect(result).to.be.true;
+		});
+
+	});
+
+	describe('is not null or undefined validation', function() {
+
+		it('should not pass with undefined', function() {
+			var result = checks.isNotNullOrUndefined(undefined);
+			expect(result).to.be.false;
+		});
+
+		it('should not pass with null', function() {
+			var result = checks.isNotNullOrUndefined(null);
+			expect(result).to.be.false;
+		});
+
+		it('should pass with value', function() {
+			var result = checks.isNotNullOrUndefined(1);
+			expect(result).to.be.true;
+		});
+
+	});
+
 	describe('empty validation', function() {
 
 		it('should pass with null', function() {
