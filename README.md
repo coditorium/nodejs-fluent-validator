@@ -178,9 +178,13 @@ List of available validations.
 - **isISBN(value)** - ISBN RegExp validation
 - **isMongoObjectId(value)** - MongoObjectId RegExp validation
 - **isNull(value)** - checks if `value === null`
+- **isNotNull(value)** - checks if `value !== null`
 - **isUndefined(value)** - checks if `value === undefined`
+- **isNotUndefined(value)** - checks if `value !== undefined`
 - **isNullOrUndefined(value)** - checks if `value === undefined || value === null`
-- **isEmpty(value)** - checks if value is defined or is a non empty array or non epmty object
+- **isNotNullOrUndefined(value)** - checks if `value !== undefined && value !== null`
+- **isEmpty(value)** - checks if value is defined and is a non empty array or non empty object or non empty string
+- **isNotEmpty(value)** - negation of `isEmpty`
 
 ### Custom validation
 
