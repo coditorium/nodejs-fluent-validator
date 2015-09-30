@@ -22,9 +22,9 @@ describe('Other validation checks:', function() {
 	describe('is not null validation', function() {
 
 		it('should not pass with null', function() {
-		    var result = checks.isNotNull(null);
+			var result = checks.isNotNull(null);
 			expect(result).to.be.false;
-	    });
+		});
 
 		it('should pass with value', function() {
 			var result = checks.isNotNull(1);

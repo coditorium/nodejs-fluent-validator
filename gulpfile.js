@@ -97,5 +97,5 @@ gulp.task('test-cov', function(done) {
 });
 
 gulp.task('checkstyle', sync(['jshint', 'jscsrc']));
-gulp.task('default', sync(['clean', 'jshint', 'test']));
+gulp.task('default', sync(['clean', 'checkstyle', 'test']));
 gulp.task('ci', sync(['clean', 'checkstyle', 'test-cov']));
